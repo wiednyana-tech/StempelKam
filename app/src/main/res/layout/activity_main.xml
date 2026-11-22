@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/btnFlash"
+            style="@style/ChipButton"
+            android:text="⚡ Mati" />
+
+        <TextView
+            android:id="@+id/tvGps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Mencari GPS…"
+            android:textColor="#FFC107"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btnStyle"
+            style="@style/ChipButton"
+            android:layout_marginEnd="8dp"
+            android:text="Gaya" />
+
+        <TextView
+            android:id="@+id/btnEdit"
+            style="@style/ChipButton"
+            android:text="✎ Edit" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/cameraFrame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="3:4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.wiednyana.stempelkam.WatermarkView
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <View
+            android:id="@+id/flashView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            android:background="#FFFFFF" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:minHeight="110dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cameraFrame">
+
+        <ImageView
+            android:id="@+id/btnGallery"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/bg_thumb"
+            android:contentDescription="Galeri"
+            android:scaleType="centerCrop" />
+
+        <ImageButton
+            android:id="@+id/btnShutter"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shutter"
+            android:contentDescription="Ambil foto" />
+
+        <TextView
+            android:id="@+id/btnFlip"
+            style="@style/ChipButton"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="32dp"
+            android:text="⟲ Balik" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
